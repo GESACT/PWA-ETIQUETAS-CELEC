@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Bienes Offline - Ecuador</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007bff">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Etiquetas de Bienes</h1>
+    </header>
+    <main>
+        <section id="status">
+            <p>Estado de conexión: <span id="online-status">Offline</span></p>
+            <p>Bienes cargados: <span id="data-count">0</span></p>
+            <p>Etiquetas pendientes: <span id="pending-print-count">0</span></p>
+            <input type="file" id="load-file-input" accept=".json">
+            <label for="load-file-input" class="button">Cargar Catálogo de Bienes</label>
+        </section>
+
+        <section id="bien-list">
+            <h2>Bienes de la Empresa</h2>
+            <input type="text" id="search-input" placeholder="Buscar por código actual, nombre...">
+            <div id="bienes-container">
+                <p>Por favor, carga el catálogo de bienes.</p>
+            </div>
+        </section>
+
+        <section id="pending-actions">
+            <h2>Acciones de Impresión</h2>
+            <button id="print-pending-btn">Imprimir Etiquetas Pendientes (<span id="pending-print-count-btn">0</span>)</button>
+            <button id="clear-pending-btn">Limpiar Etiquetas Impresas</button>
+        </section>
+
+        <section id="label-preview" style="display: none;">
+            <div id="printable-area" class="label-template">
+                </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

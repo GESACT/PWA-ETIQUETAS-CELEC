@@ -1,0 +1,19 @@
+[
+  {
+    "id": "BIEN001",
+    "CodigoActual": "XYZ789",
+    "NombreProducto": "Computadora de Escritorio",
+    "Descripcion": "PC Intel i5, 8GB RAM, 256GB SSD",
+    "Ubicacion": "Oficina Principal",
+    "FechaAdquisicion": "2023-01-15"
+  },
+  {
+    "id": "BIEN002",
+    "CodigoActual": "ABC123",
+    "NombreProducto": "Impresora Multifunción",
+    "Descripcion": "Epson EcoTank L3150",
+    "Ubicacion": "Departamento Contable",
+    "FechaAdquisicion": "2022-06-20"
+  }
+  // ... más bienes
+]

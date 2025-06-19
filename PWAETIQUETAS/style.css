@@ -1,0 +1,156 @@
+/* ... (Estilos existentes) ... */
+
+#status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#status p {
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Ocultar el input de archivo por defecto */
+#load-file-input {
+    display: none;
+}
+
+
+#bienes-container {
+    max-height: 500px; /* Altura para el scroll */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+}
+
+.bien-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px dashed #eee;
+    background-color: white;
+}
+.bien-item:last-child {
+    border-bottom: none;
+}
+
+.bien-info {
+    flex-grow: 1;
+}
+
+.bien-info strong {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.bien-info span.new-code {
+    font-weight: bold;
+    color: #007bff; /* Color para el nuevo código */
+}
+
+.bien-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bien-actions input[type="checkbox"] {
+    transform: scale(1.3); /* Checkbox más visible */
+    margin-right: 5px;
+}
+
+#pending-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#pending-actions button {
+    flex: 1 1 auto; /* Permite que los botones se ajusten */
+    max-width: 300px;
+}
+
+/* Estilos para CADA etiqueta individual a imprimir */
+.label-template-item {
+    /* Define el tamaño de tu etiqueta física aquí, ej. para impresoras térmicas */
+    width: 80mm; /* Ejemplo: 80 mm de ancho */
+    height: 60mm; /* Ejemplo: 60 mm de alto */
+    margin: 5mm; /* Margen físico en la página impresa */
+    padding: 3mm; /* Padding interno de la etiqueta */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    page-break-after: always; /* **CRUCIAL:** Fuerza un salto de página para cada etiqueta */
+    border: 1px solid #ccc; /* Solo para visualización en pantalla, remover para impresión final si no se desea */
+}
+
+.label-template-item p {
+    margin: 2px 0;
+    line-height: 1.2;
+    word-break: break-all; /* Para códigos largos */
+}
+
+.label-template-item strong {
+    font-weight: bold;
+}
+
+.label-template-item svg.barcode {
+    margin-top: 5px;
+    max-width: 95%;
+    height: auto;
+}
+
+/* Estilos para la impresión */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #label-preview, #label-preview * {
+        visibility: visible;
+    }
+    #label-preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        padding: 0;
+        display: block !important;
+    }
+    .label-template-item {
+        border: none; /* Eliminar borde para impresión final */
+        margin: 0; /* Eliminar márgenes si la impresora ya tiene los suyos */
+        /* Mantener page-break-after: always; */
+    }
+}
